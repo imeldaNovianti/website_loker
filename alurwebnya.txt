@@ -1,0 +1,110 @@
+Tahap 1: Persiapan
+Riset dan Perencanaan:
+
+Identifikasi fitur utama yang dibutuhkan (registrasi, login, pengelolaan lowongan, pencarian kerja, pengajuan lamaran).
+Buat diagram alur pengguna dan struktur database.
+Persiapan Lingkungan Pengembangan:
+
+Instalasi software:
+XAMPP/WAMP untuk server lokal.
+Editor teks seperti VS Code atau PHPStorm.
+Buat folder proyek di direktori server lokal (contoh: htdocs/loker).
+Membuat Database:
+
+Gunakan phpMyAdmin untuk membuat database web_loker.
+Eksekusi query SQL untuk membuat tabel (users, jobs, applications, dll.).
+Tahap 2: Implementasi
+A. User Journey - Pencari Kerja
+Registrasi:
+
+Pengguna mengisi form registrasi (nama, email, password, telepon).
+Data disimpan di tabel users dengan peran (role) default sebagai pencari kerja.
+Login:
+
+Pengguna memasukkan email dan password.
+Sistem memverifikasi data melalui tabel users.
+Setelah berhasil login, sistem membuat sesi (session) dan mengarahkan pengguna ke halaman utama.
+Menjelajahi Lowongan:
+
+Pengguna melihat daftar lowongan yang tersedia di halaman jobs.php.
+Informasi lowongan diambil dari tabel jobs.
+Fitur tambahan:
+Pencarian berdasarkan kata kunci judul/pekerjaan.
+Filter berdasarkan lokasi, kategori, atau jenis pekerjaan.
+Mengajukan Lamaran:
+
+Pengguna memilih lowongan, lalu mengunggah CV/resume.
+Data lamaran disimpan di tabel applications dengan status default pending.
+Cek Status Lamaran:
+
+Pengguna dapat melihat status lamaran mereka (diterima, ditolak, atau sedang ditinjau) melalui halaman my_applications.php.
+Data diambil dari tabel applications.
+B. User Journey - Pemberi Kerja
+Registrasi & Login:
+
+Sama dengan pencari kerja, tetapi peran (role) diatur menjadi pemberi kerja.
+Menambah Lowongan:
+
+Pemberi kerja dapat menambahkan lowongan melalui form add_job.php.
+Data lowongan disimpan di tabel jobs dengan kolom posted_by merujuk ke id pemberi kerja.
+Kelola Lamaran:
+
+Pemberi kerja dapat melihat daftar pelamar untuk lowongan mereka melalui halaman manage_applications.php.
+Fitur tambahan:
+Meninjau CV pelamar.
+Mengubah status lamaran (diterima/ditolak).
+C. Admin Journey
+Login Admin:
+
+Admin masuk dengan kredensial khusus.
+Peran (role) diverifikasi sebagai admin.
+Kelola Pengguna:
+
+Admin dapat mengelola data pengguna (menambah, menghapus, atau memblokir akun).
+Moderasi Lowongan:
+
+Admin dapat menutup lowongan yang tidak valid atau melanggar aturan.
+Kelola Kategori:
+
+Admin dapat menambah atau menghapus kategori pekerjaan.
+Tahap 3: Fitur Tambahan
+Pencarian dan Filter Lowongan:
+
+Implementasi fitur pencarian berdasarkan kata kunci.
+Filter lowongan berdasarkan lokasi, kategori, atau jenis pekerjaan.
+Notifikasi Email:
+
+Kirim email notifikasi kepada pelamar ketika status lamaran berubah.
+Resume Online:
+
+Pengguna dapat membuat resume langsung di sistem, tanpa harus mengunggah file.
+Dashboard Statistik:
+
+Admin atau pemberi kerja dapat melihat statistik, seperti jumlah pelamar atau lowongan yang diposting.
+Tahap 4: Pengujian
+Pengujian Fungsionalitas:
+
+Cek semua fitur utama (registrasi, login, tambah lowongan, melamar pekerjaan).
+Pastikan setiap data tersimpan di database dengan benar.
+Pengujian Keamanan:
+
+Hashing password untuk keamanan login.
+Validasi data input untuk mencegah SQL Injection.
+Pengujian Responsivitas:
+
+Pastikan tampilan aplikasi bekerja baik di berbagai perangkat (PC, tablet, ponsel).
+Tahap 5: Deployment
+Menyiapkan Server:
+
+Pilih layanan hosting seperti cPanel atau platform cloud seperti Heroku.
+Unggah file PHP proyek dan database ke server.
+Pengaturan Domain:
+
+Hubungkan domain ke server hosting.
+Testing Live:
+
+Lakukan pengujian terakhir di server live.
+Kesimpulan Alur Proyek
+Registrasi/Login: Pengguna membuat akun dan mengakses fitur sesuai peran mereka (pencari kerja, pemberi kerja, admin).
+Pengelolaan Lowongan: Pemberi kerja menambah/mengelola lowongan, sementara pencari kerja dapat melamar dan memantau statusnya.
+Admin Panel: Admin mengelola pengguna, lowongan, dan kategori untuk memastikan platform tetap berjalan lancar.
